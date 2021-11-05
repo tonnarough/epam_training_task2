@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"by.epam.training.task2.dao"},{"l":"by.epam.training.task2.dao.XMLParse"},{"l":"by.epam.training.task2.dao.XMLWrite"},{"l":"by.epam.training.task2.entity"},{"l":"by.epam.training.task2.entity.criteria"},{"l":"by.epam.training.task2.main"},{"l":"by.epam.training.task2.service"}]
