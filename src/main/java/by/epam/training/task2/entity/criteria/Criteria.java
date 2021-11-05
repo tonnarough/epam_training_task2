@@ -9,7 +9,14 @@ import java.util.function.Function;
 
 public class Criteria<T extends Appliance> {
 
+    /**
+     * The object we want to find.
+     */
     private final Class<T> searchType;
+
+    /**
+     * Contains a specific field and a corresponding value
+     */
     private final Map<Function<T, Object>, Object> equalClauses;
 
     private Criteria(Class<T> searchType) {
@@ -34,6 +41,10 @@ public class Criteria<T extends Appliance> {
         return new SearchTypeBuilder<>(searchType);
     }
 
+    /**
+     *Pattern Builder with searchType.
+     * @param <T> The object we want to write to XML.
+     */
     public static final class SearchTypeBuilder<T extends Appliance> {
         private final Class<T> searchType;
 
@@ -53,6 +64,10 @@ public class Criteria<T extends Appliance> {
         }
     }
 
+    /**
+     *Pattern Builder with searchType and equalClauses.
+     * @param <T> The object we want to write to XML.
+     */
     public static final class EqualSearchTypeBuilder<T extends Appliance> {
         private final Class<T> searchType;
         private final Map<Function<T, Object>, Object> equalClauses;

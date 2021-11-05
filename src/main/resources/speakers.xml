@@ -4,25 +4,25 @@
                 xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
                 xsi:schemaLocation = "http://www.epam.by/appliances appliances.xsd">
 
-    <speakers   id = "1">
-        <powerConsumption>15</powerConsumption>
-        <numberOfSpeakers>2</numberOfSpeakers>
-        <frequencyRange>2-4</frequencyRange>
-        <cordLength>2</cordLength>
-    </speakers >
+  <speakers   id = "1">
+    <powerConsumption>15</powerConsumption>
+    <numberOfSpeakers>2</numberOfSpeakers>
+    <frequencyRange>2-4</frequencyRange>
+    <cordLength>2</cordLength>
+  </speakers >
 
-    <speakers   id = "2">
-        <powerConsumption>20</powerConsumption>
-        <numberOfSpeakers>3</numberOfSpeakers>
-        <frequencyRange>3-4</frequencyRange>
-        <cordLength>3</cordLength>
-    </speakers >
+  <speakers   id = "2">
+    <powerConsumption>20</powerConsumption>
+    <numberOfSpeakers>3</numberOfSpeakers>
+    <frequencyRange>3-4</frequencyRange>
+    <cordLength>3</cordLength>
+  </speakers >
 
-    <speakers   id = "3">
-        <powerConsumption>17</powerConsumption>
-        <numberOfSpeakers>4</numberOfSpeakers>
-        <frequencyRange>2-3.5</frequencyRange>
-        <cordLength>4</cordLength>
-    </speakers >
+  <speakers   id = "3">
+    <powerConsumption>17</powerConsumption>
+    <numberOfSpeakers>4</numberOfSpeakers>
+    <frequencyRange>2-3.5</frequencyRange>
+    <cordLength>4</cordLength>
+  </speakers >
 
 </x:speakers>

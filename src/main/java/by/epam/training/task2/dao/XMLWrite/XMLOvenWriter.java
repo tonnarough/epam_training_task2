@@ -8,7 +8,6 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -16,7 +15,7 @@ public class XMLOvenWriter implements XMLWriter<Oven> {
     @Override
     public void write(Oven appliance, String path) throws IOException, JDOMException {
         SAXBuilder builder = new SAXBuilder();
-        Document document = builder.build(new File(path));
+        Document document = builder.build(path);
 
         Element rootElement = document.getRootElement();
 

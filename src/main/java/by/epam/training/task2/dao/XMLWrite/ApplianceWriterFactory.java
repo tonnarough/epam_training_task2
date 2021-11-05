@@ -14,6 +14,12 @@ public final class ApplianceWriterFactory implements WriterFactory {
     private ApplianceWriterFactory() {
     }
 
+    /**
+     * Depending on the type of object, we create Writer.
+     * @param appliance The object we want to write to XML.
+     * @param <T> We accept the subclasses of the Appliance class.
+     * @return Writer.
+     */
     @Override
     @SuppressWarnings("unchecked")
     public <T extends Appliance> XMLWriter<T> writeTo(Appliance appliance) {

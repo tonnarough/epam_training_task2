@@ -15,7 +15,7 @@ public class XMLSpeakersWriter implements XMLWriter<Speakers> {
     @Override
     public void write(Speakers appliance, String path) throws IOException, JDOMException {
         SAXBuilder builder = new SAXBuilder();
-        Document document = builder.build(new File(path));
+        Document document = builder.build(path);
 
         Element rootElement = document.getRootElement();
 

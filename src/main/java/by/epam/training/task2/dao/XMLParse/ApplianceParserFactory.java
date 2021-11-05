@@ -14,6 +14,14 @@ public final class ApplianceParserFactory implements ParserFactory {
     private ApplianceParserFactory() {
     }
 
+    /**
+     *Determine if the class represented, for example Oven.class, is the same as
+     *the class represented by the specified Class parameter or its superclass.
+     *To select a specific parser.
+     * @param type Determines what type of parameter should be parsed.
+     * @param <T> We accept the subclasses of the Appliance class.
+     * @return Parser of a particular type.
+     */
     @Override
     @SuppressWarnings("unchecked")
     public <T extends Appliance> XMLParser<T> parserFor(Class<T> type) {

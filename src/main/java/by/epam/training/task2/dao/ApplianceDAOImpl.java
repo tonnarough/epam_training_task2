@@ -12,16 +12,26 @@ import java.util.List;
 
 public class ApplianceDAOImpl implements ApplianceDAO {
 
-    private String ovenPath = "src/main/resources/oven.xml";
-    private String laptopPath = "src/main/resources/laptop.xml";
-    private String refrigeratorPath = "src/main/resources/refrigerator.xml";
-    private String speakersPath = "src/main/resources/speakers.xml";
-    private String tabletPCPath = "src/main/resources/tabletPC.xml";
-    private String vacuumCleanerPath = "src/main/resources/vacuumCleaner.xml";
+    private final String ovenPath = "src/main/resources/oven.xml";
+    private final String laptopPath = "src/main/resources/laptop.xml";
+    private final String refrigeratorPath = "src/main/resources/refrigerator.xml";
+    private final String speakersPath = "src/main/resources/speakers.xml";
+    private final String tabletPCPath = "src/main/resources/tabletPC.xml";
+    private final String vacuumCleanerPath = "src/main/resources/vacuumCleaner.xml";
 
     private final ParserFactory parserFactory = ParserFactory.instance();
     private final WriterFactory writerFactory = WriterFactory.instance();
 
+    /**
+     *Determining if the class represented, for example Oven.class, is the same as
+     *the class represented by the specified Class parameter or its superclass.
+     *To get a List of criteria object.
+     * @param criteria The type of objects that we want to get from the XML for further sorting.
+     * @param <T> We accept the subclasses of the Appliance class.
+     * @return List of objects of Appliance subclass.
+     * @throws IOException
+     * @throws JDOMException
+     */
     @Override
     public <T extends Appliance> List<T> findAll(Criteria<T> criteria) throws IOException, JDOMException {
         XMLParser<T> parser;
@@ -55,6 +65,12 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         return null;
     }
 
+    /**
+     *Write the object to XML.
+     * @param appliance The object we want to write to XML.
+     * @throws IOException
+     * @throws JDOMException
+     */
     @Override
     public void add(Appliance appliance) throws IOException, JDOMException {
         XMLWriter writer = null;
