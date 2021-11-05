@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sx:schema xmlns:sx="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.epam.by/appliance"
+           xmlns:tns="http://www.epam.by/appliance">
+
+    <sx:element name = "ovens">
+        <sx:complexType>
+            <sx:sequence>
+                <sx:element name = "oven" type = "tns:Oven" minOccurs = "1"
+                            maxOccurs = "unbounded"/>
+            </sx:sequence>
+        </sx:complexType>
+    </sx:element>
+
+    <sx:element name = "laptops">
+        <sx:complexType>
+            <sx:sequence>
+                <sx:element name = "laptop" type = "tns:Laptop" minOccurs = "1"
+                            maxOccurs = "unbounded"/>
+            </sx:sequence>
+        </sx:complexType>
+    </sx:element>
+
+    <sx:element name = "refrigerators">
+        <sx:complexType>
+            <sx:sequence>
+                <sx:element name = "refrigerator" type = "tns:Refrigerator" minOccurs = "1"
+                            maxOccurs = "unbounded"/>
+            </sx:sequence>
+        </sx:complexType>
+    </sx:element>
+
+    <sx:element name = "speakerss">
+        <sx:complexType>
+            <sx:sequence>
+                <sx:element name = "speakers" type = "tns:Speakers" minOccurs = "1"
+                            maxOccurs = "unbounded"/>
+            </sx:sequence>
+        </sx:complexType>
+    </sx:element>
+
+    <sx:element name = "tabletPCs">
+        <sx:complexType>
+            <sx:sequence>
+                <sx:element name = "tabletPC" type = "tns:TablePC" minOccurs = "1"
+                            maxOccurs = "unbounded"/>
+            </sx:sequence>
+        </sx:complexType>
+    </sx:element>
+
+    <sx:element name = "vacuumCleaners">
+        <sx:complexType>
+            <sx:sequence>
+                <sx:element name = "vacuumCleaner" type = "tns:VacuumCleaner" minOccurs = "1"
+                            maxOccurs = "unbounded"/>
+            </sx:sequence>
+        </sx:complexType>
+    </sx:element>
+
+    <sx:complexType name="Oven">
+        <sx:sequence>
+            <sx:element name = "powerConsumption" type = "sx:double" />
+            <sx:element name = "weight" type = "sx:double" />
+            <sx:element name = "capacity" type = "sx:double" />
+            <sx:element name = "depth" type = "sx:double" />
+            <sx:element name = "height" type = "sx:double" />
+            <sx:element name = "width" type = "sx:double" />
+        </sx:sequence>
+        <sx:attribute name = "id" type = "sx:int" use = "required"/>
+    </sx:complexType>
+
+    <sx:complexType name="Laptop">
+        <sx:sequence>
+            <sx:element name = "batteryCapacity" type = "sx:double" />
+            <sx:element name = "os" type = "sx:string" />
+            <sx:element name = "memoryRom" type = "sx:double" />
+            <sx:element name = "systemMemory" type = "sx:double" />
+            <sx:element name = "cpu" type = "sx:double" />
+            <sx:element name = "displayInchs" type = "sx:double" />
+        </sx:sequence>
+        <sx:attribute name = "id" type = "sx:int" use = "required"/>
+    </sx:complexType>
+
+    <sx:complexType name="Refrigerator">
+        <sx:sequence>
+            <sx:element name = "powerConsumption" type = "sx:double" />
+            <sx:element name = "weight" type = "sx:double" />
+            <sx:element name = "freezerCapacity" type = "sx:double" />
+            <sx:element name = "overallCapacity" type = "sx:double" />
+            <sx:element name = "height" type = "sx:double" />
+            <sx:element name = "width" type = "sx:double" />
+        </sx:sequence>
+        <sx:attribute name = "id" type = "sx:int" use = "required"/>
+    </sx:complexType>
+
+    <sx:complexType name="Speakers">
+        <sx:sequence>
+            <sx:element name = "powerConsumption" type = "sx:double" />
+            <sx:element name = "numberOfSpeakers" type = "sx:double" />
+            <sx:element name = "frequencyRange" type = "sx:string" />
+            <sx:element name = "cordLength" type = "sx:double" />
+        </sx:sequence>
+        <sx:attribute name = "id" type = "sx:int" use = "required"/>
+    </sx:complexType>
+
+    <sx:complexType name="TablePC">
+        <sx:sequence>
+            <sx:element name = "batteryCapacity" type = "sx:double" />
+            <sx:element name = "displayInches" type = "sx:double" />
+            <sx:element name = "memoryRom" type = "sx:double" />
+            <sx:element name = "flashMemoryCapacity" type = "sx:double" />
+            <sx:element name = "color" type = "sx:string" />
+        </sx:sequence>
+        <sx:attribute name = "id" type = "sx:int" use = "required"/>
+    </sx:complexType>
+
+    <sx:complexType name="VacuumCleaner">
+        <sx:sequence>
+            <sx:element name = "powerConsumption" type = "sx:double" />
+            <sx:element name = "filterType" type = "sx:string" />
+            <sx:element name = "bagType" type = "sx:string" />
+            <sx:element name = "wandType" type = "sx:string" />
+            <sx:element name = "motorSpeedRegulation" type = "sx:double" />
+            <sx:element name = "cleaningWidth" type = "sx:double" />
+        </sx:sequence>
+        <sx:attribute name = "id" type = "sx:int" use = "required"/>
+    </sx:complexType>
+
+</sx:schema>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:laptops    xmlns:x = "http://www.epam.by/appliance"
+              xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation = "http://www.epam.by/appliance appliances.xsd">
+
+    <laptop id = "1">
+        <batteryCapacity>1</batteryCapacity>
+        <os>Windows</os>
+        <memoryRom>4000</memoryRom>
+        <systemMemory>1000</systemMemory>
+        <cpu>1.2</cpu>
+        <displayInchs>18</displayInchs>
+    </laptop>
+
+    <laptop id = "2">
+        <batteryCapacity>1.5</batteryCapacity>
+        <os>Linux</os>
+        <memoryRom>8000</memoryRom>
+        <systemMemory>1000</systemMemory>
+        <cpu>2.2</cpu>
+        <displayInchs>19</displayInchs>
+    </laptop>
+
+    <laptop id = "3">
+        <batteryCapacity>3</batteryCapacity>
+        <os>Windows</os>
+        <memoryRom>8000</memoryRom>
+        <systemMemory>1500</systemMemory>
+        <cpu>3.2</cpu>
+        <displayInchs>22</displayInchs>
+    </laptop>
+
+</x:laptops>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<x:vacuumCleaners xmlns:x = "http://www.epam.by/appliance"
+                  xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation = "http://www.epam.by/appliance appliances.xsd">
+
+    <vacuumCleaner  id = "1">
+        <powerConsumption>100</powerConsumption>
+        <filterType>A</filterType>
+        <bagType>A2</bagType>
+        <wandType>all-in-one</wandType>
+        <motorSpeedRegulation>3000</motorSpeedRegulation>
+        <cleaningWidth>20</cleaningWidth>
+    </vacuumCleaner >
+
+    <vacuumCleaner  id = "2">
+        <powerConsumption>110</powerConsumption>
+        <filterType>B</filterType>
+        <bagType>AA-89</bagType>
+        <wandType>all-in-one</wandType>
+        <motorSpeedRegulation>2900</motorSpeedRegulation>
+        <cleaningWidth>25</cleaningWidth>
+    </vacuumCleaner >
+
+    <vacuumCleaner  id = "3">
+        <powerConsumption>90</powerConsumption>
+        <filterType>C</filterType>
+        <bagType>XX00</bagType>
+        <wandType>all-in-one</wandType>
+        <motorSpeedRegulation>2950</motorSpeedRegulation>
+        <cleaningWidth>30</cleaningWidth>
+    </vacuumCleaner >
+
+</x:vacuumCleaners>
