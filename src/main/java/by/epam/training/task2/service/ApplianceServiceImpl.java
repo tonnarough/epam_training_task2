@@ -4,6 +4,7 @@ import by.epam.training.task2.dao.ApplianceDAO;
 import by.epam.training.task2.dao.DAOFactory;
 import by.epam.training.task2.entity.Appliance;
 import by.epam.training.task2.entity.criteria.Criteria;
+import by.epam.training.task2.service.validation.Validator;
 import org.jdom2.JDOMException;
 
 import java.io.IOException;
@@ -29,25 +30,11 @@ public class ApplianceServiceImpl implements ApplianceService {
         ApplianceDAO applianceDAO = factory.getApplianceDAO();
 
         List<T> applianceList = applianceDAO.findAll(criteria);
+        List<T> result;
         final Map<Function<T, Object>, Object> equalClauses = criteria.getEqualClauses();
 
-        List<T> result = new ArrayList<>(applianceList);
+        result = Validator.findApplianceByCriteria(applianceList, equalClauses);
 
-        for (T appliance : applianceList) {
-
-            boolean shouldRemain = true;
-            for (Map.Entry<Function<T, Object>, Object> equalClause : equalClauses.entrySet()) {
-                final Function<T, Object> getter = equalClause.getKey();
-                final Object expectedValue = equalClause.getValue();
-                if (!expectedValue.equals(getter.apply(appliance))) {
-                    shouldRemain = false;
-                    break;
-                }
-            }
-            if (!shouldRemain) {
-                result.remove(appliance);
-            }
-        }
         return result;
     }
 
