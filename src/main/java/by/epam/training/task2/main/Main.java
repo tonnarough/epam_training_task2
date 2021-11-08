@@ -36,13 +36,24 @@ public class Main {
         applianceService.add(new Speakers("Speakers",
                 4, 20.0, 3.0, "4-6", 7.0));
 
+        applianceService.add(new Laptop("Laptop",
+                4, 2.0, "Ubuntu", 5000.0, 2000.0, 1.3, 20.0));
+
         final Criteria<Speakers> speakersCriteria = Criteria.from(Speakers.class)
                 .with(Speakers::getNumberOfSpeakers, 3.0)
                 .and(Speakers::getCordLength, 7.0)
                 .create();
 
+        final Criteria<Laptop> laptop2Criteria = Criteria.from(Laptop.class)
+                .with(Laptop::getOs, "Ubuntu")
+                .and(Laptop::getSystemMemory, 2000.0)
+                .create();
+
         final List<Speakers> speakers = applianceService.find(speakersCriteria);
         speakers.forEach(System.out::println);
+
+        final List<Laptop> laptops2 = applianceService.find(laptop2Criteria);
+        laptops2.forEach(System.out::println);
 
 
     }
