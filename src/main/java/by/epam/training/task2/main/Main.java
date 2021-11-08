@@ -33,14 +33,17 @@ public class Main {
         final List<Laptop> laptops = applianceService.find(laptopCriteria);
         laptops.forEach(System.out::println);
 
-        applianceService.add(new Speakers("Speakers", 4,
-                16, 3, "5-7", 3));
+        applianceService.add(new Speakers("Speakers",
+                4, 20.0, 3.0, "4-6", 7.0));
 
         final Criteria<Speakers> speakersCriteria = Criteria.from(Speakers.class)
-                .with(Speakers::getFrequencyRange, "2-3.5")
+                .with(Speakers::getNumberOfSpeakers, 3.0)
+                .and(Speakers::getCordLength, 7.0)
                 .create();
 
         final List<Speakers> speakers = applianceService.find(speakersCriteria);
         speakers.forEach(System.out::println);
+
+
     }
 }

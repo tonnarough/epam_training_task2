@@ -1,4 +1,4 @@
-package by.epam.training.task2.dao.XMLParse;
+package by.epam.training.task2.dao.xmlparse;
 
 import by.epam.training.task2.entity.Appliance;
 

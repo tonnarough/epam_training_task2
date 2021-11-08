@@ -1,6 +1,7 @@
-package by.epam.training.task2.dao.XMLWrite;
+package by.epam.training.task2.dao.xmlwrite;
 
 import by.epam.training.task2.entity.Oven;
+import by.epam.training.task2.entity.criteria.SearchCriteria;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -19,26 +20,27 @@ public class XMLOvenWriter implements XMLWriter<Oven> {
 
         Element rootElement = document.getRootElement();
 
-        Element ovenElement = new Element("ovens");
+        Element ovenElement = new Element(SearchCriteria.Oven.OVEN.toString().toLowerCase());
 
-        ovenElement.setAttribute("id", String.valueOf(appliance.getId()));
+        ovenElement.setAttribute(SearchCriteria.Oven.ID.toString().toLowerCase()
+                , String.valueOf(appliance.getId()));
 
-        ovenElement.addContent(new Element("powerConsumption")
+        ovenElement.addContent(new Element(SearchCriteria.Oven.POWER_CONSUMPTION.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getPowerConsumption())));
 
-        ovenElement.addContent(new Element("weight")
+        ovenElement.addContent(new Element(SearchCriteria.Oven.WEIGHT.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getWeight())));
 
-        ovenElement.addContent(new Element("capacity")
+        ovenElement.addContent(new Element(SearchCriteria.Oven.CAPACITY.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getCapacity())));
 
-        ovenElement.addContent(new Element("depth")
+        ovenElement.addContent(new Element(SearchCriteria.Oven.DEPTH.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getDepth())));
 
-        ovenElement.addContent(new Element("height")
+        ovenElement.addContent(new Element(SearchCriteria.Oven.HEIGHT.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getHeight())));
 
-        ovenElement.addContent(new Element("width")
+        ovenElement.addContent(new Element(SearchCriteria.Oven.WIDTH.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getWidth())));
 
         rootElement.addContent(ovenElement);

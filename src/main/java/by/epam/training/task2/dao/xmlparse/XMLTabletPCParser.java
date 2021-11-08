@@ -1,5 +1,6 @@
-package by.epam.training.task2.dao.XMLParse;
+package by.epam.training.task2.dao.xmlparse;
 
+import by.epam.training.task2.entity.criteria.SearchCriteria;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
@@ -17,7 +18,7 @@ public class XMLTabletPCParser implements XMLParser<TabletPC> {
         return new SAXBuilder()
                 .build(new InputSource(path))
                 .getRootElement()
-                .getChildren()
+                .getChildren(SearchCriteria.TabletPC.TABLETPC.toString().toLowerCase())
                 .stream()
                 .map(this::convert)
                 .collect(Collectors.toList());
@@ -27,13 +28,26 @@ public class XMLTabletPCParser implements XMLParser<TabletPC> {
     @Override
     public TabletPC convert(Element tabletPCElement) {
         TabletPC tabletPC = new TabletPC();
+
         tabletPC.setProductName(tabletPCElement.getName());
-        tabletPC.setId(Integer.parseInt(tabletPCElement.getAttributeValue("id")));
-        tabletPC.setBatteryCapacity(Double.parseDouble(tabletPCElement.getChildText("batteryCapacity")));
-        tabletPC.setDisplayInches(Double.parseDouble(tabletPCElement.getChildText("displayInches")));
-        tabletPC.setMemoryRom(Double.parseDouble(tabletPCElement.getChildText("memoryRom")));
-        tabletPC.setFlashMemoryCapacity(Double.parseDouble(tabletPCElement.getChildText("flashMemoryCapacity")));
-        tabletPC.setColor(tabletPCElement.getChildText("color"));
+
+        tabletPC.setId(Integer.parseInt(tabletPCElement
+                .getAttributeValue(SearchCriteria.TabletPC.ID.toString().toLowerCase())));
+
+        tabletPC.setBatteryCapacity(Double.parseDouble(tabletPCElement
+                .getChildText(SearchCriteria.TabletPC.BATTERY_CAPACITY.toString().toLowerCase())));
+
+        tabletPC.setDisplayInches(Double.parseDouble(tabletPCElement
+                .getChildText(SearchCriteria.TabletPC.DISPLAY_INCHES.toString().toLowerCase())));
+
+        tabletPC.setMemoryRom(Double.parseDouble(tabletPCElement
+                .getChildText(SearchCriteria.TabletPC.MEMORY_ROM.toString().toLowerCase())));
+
+        tabletPC.setFlashMemoryCapacity(Double.parseDouble(tabletPCElement
+                .getChildText(SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY.toString().toLowerCase())));
+
+        tabletPC.setColor(tabletPCElement
+                .getChildText(SearchCriteria.TabletPC.COLOR.toString().toLowerCase()));
         return tabletPC;
     }
 }

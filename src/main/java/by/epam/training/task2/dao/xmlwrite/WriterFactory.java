@@ -1,4 +1,4 @@
-package by.epam.training.task2.dao.XMLWrite;
+package by.epam.training.task2.dao.xmlwrite;
 
 import by.epam.training.task2.entity.Appliance;
 

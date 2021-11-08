@@ -1,12 +1,14 @@
-package by.epam.training.task2.dao.XMLWrite;
+package by.epam.training.task2.dao.xmlwrite;
 
 import by.epam.training.task2.entity.Speakers;
+import by.epam.training.task2.entity.criteria.SearchCriteria;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
+import org.w3c.dom.NodeList;
 
 import java.io.*;
 
@@ -19,20 +21,21 @@ public class XMLSpeakersWriter implements XMLWriter<Speakers> {
 
         Element rootElement = document.getRootElement();
 
-        Element speakersElement = new Element("speakers");
+        Element speakersElement = new Element(SearchCriteria.Speakers.SPEAKERS.toString().toLowerCase());
 
-        speakersElement.setAttribute("id", String.valueOf(appliance.getId()));
+        speakersElement.setAttribute(SearchCriteria.Speakers.ID.toString().toLowerCase()
+                , String.valueOf(appliance.getId()));
 
-        speakersElement.addContent(new Element("powerConsumption")
+        speakersElement.addContent(new Element(SearchCriteria.Speakers.POWER_CONSUMPTION.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getPowerConsumption())));
 
-        speakersElement.addContent(new Element("numberOfSpeakers")
+        speakersElement.addContent(new Element(SearchCriteria.Speakers.NUMBER_OF_SPEAKERS.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getNumberOfSpeakers())));
 
-        speakersElement.addContent(new Element("frequencyRange")
+        speakersElement.addContent(new Element(SearchCriteria.Speakers.FREQUENCY_RANGE.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getFrequencyRange())));
 
-        speakersElement.addContent(new Element("cordLength")
+        speakersElement.addContent(new Element(SearchCriteria.Speakers.CORD_LENGTH.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getCordLength())));
 
         rootElement.addContent(speakersElement);

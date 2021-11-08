@@ -1,6 +1,6 @@
 by.epam.training.task2.dao
-by.epam.training.task2.dao.XMLParse
-by.epam.training.task2.dao.XMLWrite
+by.epam.training.task2.dao.xmlparse
+by.epam.training.task2.dao.xmlwrite
 by.epam.training.task2.entity
 by.epam.training.task2.entity.criteria
 by.epam.training.task2.main

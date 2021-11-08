@@ -3,54 +3,24 @@
            targetNamespace="http://www.epam.by/appliance"
            xmlns:tns="http://www.epam.by/appliance">
 
-    <sx:element name = "ovens">
+    <sx:element name = "appliances">
         <sx:complexType>
             <sx:sequence>
                 <sx:element name = "oven" type = "tns:Oven" minOccurs = "1"
                             maxOccurs = "unbounded"/>
-            </sx:sequence>
-        </sx:complexType>
-    </sx:element>
 
-    <sx:element name = "laptops">
-        <sx:complexType>
-            <sx:sequence>
                 <sx:element name = "laptop" type = "tns:Laptop" minOccurs = "1"
                             maxOccurs = "unbounded"/>
-            </sx:sequence>
-        </sx:complexType>
-    </sx:element>
 
-    <sx:element name = "refrigerators">
-        <sx:complexType>
-            <sx:sequence>
                 <sx:element name = "refrigerator" type = "tns:Refrigerator" minOccurs = "1"
                             maxOccurs = "unbounded"/>
-            </sx:sequence>
-        </sx:complexType>
-    </sx:element>
 
-    <sx:element name = "speakerss">
-        <sx:complexType>
-            <sx:sequence>
                 <sx:element name = "speakers" type = "tns:Speakers" minOccurs = "1"
                             maxOccurs = "unbounded"/>
-            </sx:sequence>
-        </sx:complexType>
-    </sx:element>
 
-    <sx:element name = "tabletPCs">
-        <sx:complexType>
-            <sx:sequence>
                 <sx:element name = "tabletPC" type = "tns:TablePC" minOccurs = "1"
                             maxOccurs = "unbounded"/>
-            </sx:sequence>
-        </sx:complexType>
-    </sx:element>
 
-    <sx:element name = "vacuumCleaners">
-        <sx:complexType>
-            <sx:sequence>
                 <sx:element name = "vacuumCleaner" type = "tns:VacuumCleaner" minOccurs = "1"
                             maxOccurs = "unbounded"/>
             </sx:sequence>
@@ -59,7 +29,7 @@
 
     <sx:complexType name="Oven">
         <sx:sequence>
-            <sx:element name = "powerConsumption" type = "sx:double" />
+            <sx:element name = "power_consumption" type = "sx:double" />
             <sx:element name = "weight" type = "sx:double" />
             <sx:element name = "capacity" type = "sx:double" />
             <sx:element name = "depth" type = "sx:double" />
@@ -71,22 +41,22 @@
 
     <sx:complexType name="Laptop">
         <sx:sequence>
-            <sx:element name = "batteryCapacity" type = "sx:double" />
+            <sx:element name = "battery_capacity" type = "sx:double" />
             <sx:element name = "os" type = "sx:string" />
-            <sx:element name = "memoryRom" type = "sx:double" />
-            <sx:element name = "systemMemory" type = "sx:double" />
+            <sx:element name = "memory_rom" type = "sx:double" />
+            <sx:element name = "system_memory" type = "sx:double" />
             <sx:element name = "cpu" type = "sx:double" />
-            <sx:element name = "displayInchs" type = "sx:double" />
+            <sx:element name = "display_inchs" type = "sx:double" />
         </sx:sequence>
         <sx:attribute name = "id" type = "sx:int" use = "required"/>
     </sx:complexType>
 
     <sx:complexType name="Refrigerator">
         <sx:sequence>
-            <sx:element name = "powerConsumption" type = "sx:double" />
+            <sx:element name = "power_consumption" type = "sx:double" />
             <sx:element name = "weight" type = "sx:double" />
-            <sx:element name = "freezerCapacity" type = "sx:double" />
-            <sx:element name = "overallCapacity" type = "sx:double" />
+            <sx:element name = "freezer_capacity" type = "sx:double" />
+            <sx:element name = "overall_capacity" type = "sx:double" />
             <sx:element name = "height" type = "sx:double" />
             <sx:element name = "width" type = "sx:double" />
         </sx:sequence>
@@ -95,20 +65,20 @@
 
     <sx:complexType name="Speakers">
         <sx:sequence>
-            <sx:element name = "powerConsumption" type = "sx:double" />
-            <sx:element name = "numberOfSpeakers" type = "sx:double" />
-            <sx:element name = "frequencyRange" type = "sx:string" />
-            <sx:element name = "cordLength" type = "sx:double" />
+            <sx:element name = "power_consumption" type = "sx:double" />
+            <sx:element name = "number_of_speakers" type = "sx:double" />
+            <sx:element name = "frequency_range" type = "sx:string" />
+            <sx:element name = "cord_length" type = "sx:double" />
         </sx:sequence>
         <sx:attribute name = "id" type = "sx:int" use = "required"/>
     </sx:complexType>
 
     <sx:complexType name="TablePC">
         <sx:sequence>
-            <sx:element name = "batteryCapacity" type = "sx:double" />
-            <sx:element name = "displayInches" type = "sx:double" />
-            <sx:element name = "memoryRom" type = "sx:double" />
-            <sx:element name = "flashMemoryCapacity" type = "sx:double" />
+            <sx:element name = "battery_capacity" type = "sx:double" />
+            <sx:element name = "display_inches" type = "sx:double" />
+            <sx:element name = "memory_rom" type = "sx:double" />
+            <sx:element name = "flash_memory_capacity" type = "sx:double" />
             <sx:element name = "color" type = "sx:string" />
         </sx:sequence>
         <sx:attribute name = "id" type = "sx:int" use = "required"/>
@@ -116,12 +86,12 @@
 
     <sx:complexType name="VacuumCleaner">
         <sx:sequence>
-            <sx:element name = "powerConsumption" type = "sx:double" />
-            <sx:element name = "filterType" type = "sx:string" />
-            <sx:element name = "bagType" type = "sx:string" />
-            <sx:element name = "wandType" type = "sx:string" />
-            <sx:element name = "motorSpeedRegulation" type = "sx:double" />
-            <sx:element name = "cleaningWidth" type = "sx:double" />
+            <sx:element name = "power_consumption" type = "sx:double" />
+            <sx:element name = "filter_type" type = "sx:string" />
+            <sx:element name = "bag_type" type = "sx:string" />
+            <sx:element name = "wand_type" type = "sx:string" />
+            <sx:element name = "motor_speed_regulation" type = "sx:double" />
+            <sx:element name = "cleaning_width" type = "sx:double" />
         </sx:sequence>
         <sx:attribute name = "id" type = "sx:int" use = "required"/>
     </sx:complexType>

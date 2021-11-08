@@ -1,6 +1,7 @@
-package by.epam.training.task2.dao.XMLParse;
+package by.epam.training.task2.dao.xmlparse;
 
 import by.epam.training.task2.entity.Refrigerator;
+import by.epam.training.task2.entity.criteria.SearchCriteria;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
@@ -17,7 +18,7 @@ public class XMLRefrigeratorParser implements XMLParser<Refrigerator> {
         return new SAXBuilder()
                 .build(new InputSource(path))
                 .getRootElement()
-                .getChildren()
+                .getChildren(SearchCriteria.Refrigerator.REFRIGERATOR.toString().toLowerCase())
                 .stream()
                 .map(this::convert)
                 .collect(Collectors.toList());
@@ -27,14 +28,29 @@ public class XMLRefrigeratorParser implements XMLParser<Refrigerator> {
     @Override
     public Refrigerator convert(Element refrigeratorElement) {
         Refrigerator refrigerator = new Refrigerator();
+
         refrigerator.setProductName(refrigeratorElement.getName());
-        refrigerator.setId(Integer.parseInt(refrigeratorElement.getAttributeValue("id")));
-        refrigerator.setPowerConsumption(Double.parseDouble(refrigeratorElement.getChildText("powerConsumption")));
-        refrigerator.setWidth(Double.parseDouble(refrigeratorElement.getChildText("weight")));
-        refrigerator.setFreezerCapacity(Double.parseDouble(refrigeratorElement.getChildText("freezerCapacity")));
-        refrigerator.setOverallCapacity(Double.parseDouble(refrigeratorElement.getChildText("overallCapacity")));
-        refrigerator.setHeight(Double.parseDouble(refrigeratorElement.getChildText("height")));
-        refrigerator.setWeight(Double.parseDouble(refrigeratorElement.getChildText("width")));
+
+        refrigerator.setId(Integer.parseInt(refrigeratorElement
+                .getAttributeValue(SearchCriteria.Refrigerator.ID.toString().toLowerCase())));
+
+        refrigerator.setPowerConsumption(Double.parseDouble(refrigeratorElement
+                .getChildText(SearchCriteria.Refrigerator.POWER_CONSUMPTION.toString().toLowerCase())));
+
+        refrigerator.setWidth(Double.parseDouble(refrigeratorElement
+                .getChildText(SearchCriteria.Refrigerator.WEIGHT.toString().toLowerCase())));
+
+        refrigerator.setFreezerCapacity(Double.parseDouble(refrigeratorElement
+                .getChildText(SearchCriteria.Refrigerator.FREEZER_CAPACITY.toString().toLowerCase())));
+
+        refrigerator.setOverallCapacity(Double.parseDouble(refrigeratorElement
+                .getChildText(SearchCriteria.Refrigerator.OVERALL_CAPACITY.toString().toLowerCase())));
+
+        refrigerator.setHeight(Double.parseDouble(refrigeratorElement
+                .getChildText(SearchCriteria.Refrigerator.HEIGHT.toString().toLowerCase())));
+
+        refrigerator.setWeight(Double.parseDouble(refrigeratorElement
+                .getChildText(SearchCriteria.Refrigerator.WIDTH.toString().toLowerCase())));
         return refrigerator;
     }
 }

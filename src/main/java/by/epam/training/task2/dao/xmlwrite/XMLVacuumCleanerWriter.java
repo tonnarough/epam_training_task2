@@ -1,6 +1,7 @@
-package by.epam.training.task2.dao.XMLWrite;
+package by.epam.training.task2.dao.xmlwrite;
 
 import by.epam.training.task2.entity.VacuumCleaner;
+import by.epam.training.task2.entity.criteria.SearchCriteria;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -19,26 +20,27 @@ public class XMLVacuumCleanerWriter implements XMLWriter<VacuumCleaner> {
 
         Element rootElement = document.getRootElement();
 
-        Element vacuumCleanerElement = new Element("vacuumCleaners");
+        Element vacuumCleanerElement = new Element(SearchCriteria.VacuumCleaner.VACUUMCLEANER.toString().toLowerCase());
 
-        vacuumCleanerElement.setAttribute("id", String.valueOf(appliance.getId()));
+        vacuumCleanerElement.setAttribute(SearchCriteria.VacuumCleaner.ID.toString().toLowerCase()
+                , String.valueOf(appliance.getId()));
 
-        vacuumCleanerElement.addContent(new Element("powerConsumption")
+        vacuumCleanerElement.addContent(new Element(SearchCriteria.VacuumCleaner.POWER_CONSUMPTION.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getPowerConsumption())));
 
-        vacuumCleanerElement.addContent(new Element("filterType")
+        vacuumCleanerElement.addContent(new Element(SearchCriteria.VacuumCleaner.FILTER_TYPE.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getFilterType())));
 
-        vacuumCleanerElement.addContent(new Element("bagType")
+        vacuumCleanerElement.addContent(new Element(SearchCriteria.VacuumCleaner.BAG_TYPE.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getBagType())));
 
-        vacuumCleanerElement.addContent(new Element("wandType")
+        vacuumCleanerElement.addContent(new Element(SearchCriteria.VacuumCleaner.WAND_TYPE.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getWandType())));
 
-        vacuumCleanerElement.addContent(new Element("motorSpeedRegulation")
+        vacuumCleanerElement.addContent(new Element(SearchCriteria.VacuumCleaner.MOTOR_SPEED_REGULATION.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getMotorSpeedRegulation())));
 
-        vacuumCleanerElement.addContent(new Element("cleaningWidth")
+        vacuumCleanerElement.addContent(new Element(SearchCriteria.VacuumCleaner.CLEANING_WIDTH.toString().toLowerCase())
                 .setText(String.valueOf(appliance.getCleaningWidth())));
 
         rootElement.addContent(vacuumCleanerElement);

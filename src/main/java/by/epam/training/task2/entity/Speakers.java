@@ -75,7 +75,7 @@ public final class Speakers extends Appliance {
                 "id=" + getId() +
                 ", powerConsumption=" + powerConsumption +
                 ", numberOfSpeakers=" + numberOfSpeakers +
-                ", frequency='" + frequencyRange + '\'' +
+                ", frequencyRange='" + frequencyRange + '\'' +
                 ", cordLenght=" + cordLength +
                 '}';
     }

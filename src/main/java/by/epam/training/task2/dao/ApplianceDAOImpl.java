@@ -1,23 +1,23 @@
 package by.epam.training.task2.dao;
 
-import by.epam.training.task2.dao.XMLParse.*;
-import by.epam.training.task2.dao.XMLWrite.WriterFactory;
-import by.epam.training.task2.dao.XMLWrite.XMLWriter;
+import by.epam.training.task2.dao.xmlparse.*;
+import by.epam.training.task2.dao.xmlwrite.WriterFactory;
+import by.epam.training.task2.dao.xmlwrite.XMLWriter;
 import by.epam.training.task2.entity.*;
 import by.epam.training.task2.entity.criteria.Criteria;
 import org.jdom2.JDOMException;
+import org.w3c.dom.ls.LSOutput;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class ApplianceDAOImpl implements ApplianceDAO {
 
-    private final String ovenPath = "src/main/resources/oven.xml";
-    private final String laptopPath = "src/main/resources/laptop.xml";
-    private final String refrigeratorPath = "src/main/resources/refrigerator.xml";
-    private final String speakersPath = "src/main/resources/speakers.xml";
-    private final String tabletPCPath = "src/main/resources/tabletPC.xml";
-    private final String vacuumCleanerPath = "src/main/resources/vacuumCleaner.xml";
+    ClassLoader classLoader = ApplianceDAOImpl.class.getClassLoader();
+    private final String path = new File(Objects.requireNonNull(classLoader
+            .getResource("appliances.xml")).getFile()).toString();
 
     private final ParserFactory parserFactory = ParserFactory.instance();
     private final WriterFactory writerFactory = WriterFactory.instance();
@@ -39,27 +39,27 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 
         if (Oven.class.isAssignableFrom(searchType)) {
             parser = parserFactory.parserFor(searchType);
-            return parser.parse(ovenPath);
+            return parser.parse(path);
 
         } else if (Laptop.class.isAssignableFrom(searchType)) {
             parser = parserFactory.parserFor(searchType);
-            return parser.parse(laptopPath);
+            return parser.parse(path);
 
         } else if (Refrigerator.class.isAssignableFrom(searchType)) {
             parser = parserFactory.parserFor(searchType);
-            return parser.parse(refrigeratorPath);
+            return parser.parse(path);
 
         } else if (Speakers.class.isAssignableFrom(searchType)) {
             parser = parserFactory.parserFor(searchType);
-            return parser.parse(speakersPath);
+            return parser.parse(path);
 
         } else if (TabletPC.class.isAssignableFrom(searchType)) {
             parser = parserFactory.parserFor(searchType);
-            return parser.parse(tabletPCPath);
+            return parser.parse(path);
 
         } else if (VacuumCleaner.class.isAssignableFrom(searchType)) {
             parser = parserFactory.parserFor(searchType);
-            return parser.parse(vacuumCleanerPath);
+            return parser.parse(path);
 
         }
         return null;
@@ -77,27 +77,27 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 
         if (appliance instanceof Oven) {
             writer = writerFactory.writeTo(appliance);
-            writer.write(appliance, ovenPath);
+            writer.write(appliance, path);
 
         } else if (appliance instanceof Laptop) {
             writer = writerFactory.writeTo(appliance);
-            writer.write(appliance, laptopPath);
+            writer.write(appliance, path);
 
         } else if (appliance instanceof Refrigerator) {
             writer = writerFactory.writeTo(appliance);
-            writer.write(appliance, refrigeratorPath);
+            writer.write(appliance, path);
 
         } else if (appliance instanceof Speakers) {
             writer = writerFactory.writeTo(appliance);
-            writer.write(appliance, speakersPath);
+            writer.write(appliance, path);
 
         } else if (appliance instanceof TabletPC) {
             writer = writerFactory.writeTo(appliance);
-            writer.write(appliance, tabletPCPath);
+            writer.write(appliance, path);
 
         } else if (appliance instanceof VacuumCleaner) {
             writer = writerFactory.writeTo(appliance);
-            writer.write(appliance, vacuumCleanerPath);
+            writer.write(appliance, path);
 
         }
     }

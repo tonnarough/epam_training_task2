@@ -1,6 +1,7 @@
-package by.epam.training.task2.dao.XMLParse;
+package by.epam.training.task2.dao.xmlparse;
 
 import by.epam.training.task2.entity.Oven;
+import by.epam.training.task2.entity.criteria.SearchCriteria;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
@@ -17,7 +18,7 @@ public class XMLOvenParser implements XMLParser<Oven> {
         return new SAXBuilder()
                 .build(new InputSource(path))
                 .getRootElement()
-                .getChildren()
+                .getChildren(SearchCriteria.Oven.OVEN.toString().toLowerCase())
                 .stream()
                 .map(this::convert)
                 .collect(Collectors.toList());
@@ -26,14 +27,29 @@ public class XMLOvenParser implements XMLParser<Oven> {
     @Override
     public Oven convert(Element ovenElement) {
         Oven oven = new Oven();
+
         oven.setProductName(ovenElement.getName());
-        oven.setId(Integer.parseInt(ovenElement.getAttributeValue("id")));
-        oven.setPowerConsumption(Double.parseDouble(ovenElement.getChildText("powerConsumption")));
-        oven.setWidth(Double.parseDouble(ovenElement.getChildText("weight")));
-        oven.setCapacity(Double.parseDouble(ovenElement.getChildText("capacity")));
-        oven.setDepth(Double.parseDouble(ovenElement.getChildText("depth")));
-        oven.setHeight(Double.parseDouble(ovenElement.getChildText("height")));
-        oven.setWeight(Double.parseDouble(ovenElement.getChildText("width")));
+
+        oven.setId(Integer.parseInt(ovenElement
+                .getAttributeValue(SearchCriteria.Oven.ID.toString().toLowerCase())));
+
+        oven.setPowerConsumption(Double.parseDouble(ovenElement
+                .getChildText(SearchCriteria.Oven.POWER_CONSUMPTION.toString().toLowerCase())));
+
+        oven.setWidth(Double.parseDouble(ovenElement
+                .getChildText(SearchCriteria.Oven.WIDTH.toString().toLowerCase())));
+
+        oven.setCapacity(Double.parseDouble(ovenElement
+                .getChildText(SearchCriteria.Oven.CAPACITY.toString().toLowerCase())));
+
+        oven.setDepth(Double.parseDouble(ovenElement
+                .getChildText(SearchCriteria.Oven.DEPTH.toString().toLowerCase())));
+
+        oven.setHeight(Double.parseDouble(ovenElement
+                .getChildText(SearchCriteria.Oven.HEIGHT.toString().toLowerCase())));
+
+        oven.setWeight(Double.parseDouble(ovenElement
+                .getChildText(SearchCriteria.Oven.WEIGHT.toString().toLowerCase())));
         return oven;
     }
 }
